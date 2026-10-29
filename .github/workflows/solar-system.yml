@@ -22,7 +22,13 @@ jobs:
           uses: actions/setup-node@v4
           with:
             node-version: 20
-    
+        - name: Cache NPM dependencies
+          id: cache-npm-dependencies
+          uses: actions/cache
+          with:
+            path: ~/.npm
+            key: ${runnerOS}-node-{hash}
+
         - name: Install Dependencies
           run: npm install
     
