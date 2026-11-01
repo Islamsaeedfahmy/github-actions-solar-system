@@ -87,9 +87,9 @@ jobs:
             tags: ${{ vars.DOCKERHUB_USERNAME}}/app2:latest
 
     dev-deploy:
-        runs-on:  ubuntu-latest
+        runs-on: ubuntu-latest
+        environment: development
         needs: docker
-        enviroment: development 
         steps:
         - name: helm install
           uses: helm/kind-action@v1
